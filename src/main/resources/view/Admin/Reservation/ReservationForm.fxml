@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Reservation.ReservationFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#117864" height="58.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
+      <Label layoutX="239.0" layoutY="15.0" text="Reservation">
+         <font>
+            <Font name="Times New Roman Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="75.0" text="Customer Id : ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="308.0" layoutY="76.0" text="Room Id : ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="123.0" text="Check-in-Date : ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="309.0" layoutY="122.0" text="Check-Out-Date :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="228.0" text="Total Amount : " textFill="RED">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="167.0" text="Reservation Status : ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dateCheckIn" layoutX="109.0" layoutY="119.0" prefHeight="25.0" prefWidth="159.0" />
+      <DatePicker fx:id="dateCheckOut" layoutX="412.0" layoutY="118.0" />
+      <JFXComboBox fx:id="cmbCusId" layoutX="104.0" layoutY="71.0" prefHeight="25.0" prefWidth="116.0" />
+      <JFXComboBox fx:id="cmbRoomId" layoutX="395.0" layoutY="72.0" prefHeight="25.0" prefWidth="116.0" />
+      <Label fx:id="lblTotal" layoutX="116.0" layoutY="229.0" text="00">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbResStatus" layoutX="133.0" layoutY="163.0" prefHeight="25.0" prefWidth="116.0" />
+      <Button layoutX="448.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #3498db;" text="Place">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
