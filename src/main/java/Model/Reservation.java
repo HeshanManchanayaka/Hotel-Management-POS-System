@@ -1,12 +1,20 @@
 package Model;
 
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import java.time.LocalDate;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Reservation {
     private int customerId;
-    private int roomId;
-    private Date checkInDate;
-    private Date checkOutDate;
+    private String roomNumber;
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
     private double total;
     private String status;
 }
