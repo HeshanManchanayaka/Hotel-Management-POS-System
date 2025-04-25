@@ -7,14 +7,14 @@
 
 <AnchorPane prefHeight="486.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardController">
    <children>
-      <AnchorPane prefHeight="486.0" prefWidth="195.0" style="-fx-background-color: #117864;">
+      <AnchorPane layoutY="-1.0" prefHeight="486.0" prefWidth="195.0" style="-fx-background-color: #117864;">
          <children>
             <Button layoutX="18.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDeleteCustomerManagementOnAction" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: #ffe11f;" text="Delete/Update Customers">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="17.0" layoutY="269.0" mnemonicParsing="false" onAction="#btnReservationOnAction" prefHeight="26.0" prefWidth="162.0" style="-fx-background-color: #ffe11f;" text="Reservation">
+            <Button layoutX="17.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnReservationOnAction" prefHeight="26.0" prefWidth="162.0" style="-fx-background-color: #ffe11f;" text="Reservation">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
@@ -32,6 +32,16 @@
             <Button layoutX="18.0" layoutY="107.0" mnemonicParsing="false" onAction="#btnAddCustomerOnAction" prefHeight="30.0" prefWidth="161.0" style="-fx-background-color: #ffe11f;" text="Add Customers">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="18.0" layoutY="307.0" mnemonicParsing="false" onAction="#btnSearchRoomManagementOnAction" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: #ffe11f;" text="Search Rooms">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="18.0" layoutY="268.0" mnemonicParsing="false" onAction="#btnDeleteRoomManagementOnAction" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: #ffe11f;" text="Delete/Update Rooms">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
                </font>
             </Button>
          </children>

@@ -24,10 +24,11 @@ public class RoomController implements RoomService{
     @Override
     public boolean updateRoom(Room room) throws SQLException {
         PreparedStatement prs = DBConnection.getInstance().getConnection().prepareStatement("UPDATE Rooms SET room_type = ?, price_per_night = ?, availability_status = ? WHERE room_number = ?");
+        System.out.println(room);
         prs.setString(1, room.getType());
-        prs.setString(2, String.valueOf(room.getPricePerNight()));
+        prs.setDouble(2, room.getPricePerNight());
         prs.setString(3, room.getAvailabilityStatus());
-        prs.setString(4, String.valueOf(room.getNumber()));
+        prs.setString(4, room.getNumber());
 
         int res = prs.executeUpdate();
         return res > 0;
@@ -35,16 +36,17 @@ public class RoomController implements RoomService{
     }
 
     @Override
-    public boolean searchRoom(Room room) throws SQLException {
-         PreparedStatement prs = DBConnection.getInstance().getConnection().prepareStatement("SELECT * FROM Rooms WHERE room_number = ?");
-
-        prs.setString(1, room.getType());
-        prs.setString(2, String.valueOf(room.getPricePerNight()));
-        prs.setString(3, room.getAvailabilityStatus());
-        prs.setString(4, String.valueOf(room.getNumber()));
-
-        int res = prs.executeUpdate();
-        return res > 0;
+    public Room searchRoom(String room_no) throws SQLException {
+         PreparedStatement prs = DBConnection.getInstance().getConnection().prepareStatement("SELECT room_number , room_type, price_per_night, availability_status FROM Rooms WHERE room_number = ?");
+            prs.setString(1, room_no);
+            ResultSet rst = prs.executeQuery();
+        System.out.println(rst);
+            if(rst.next()){
+               Room room = new Room(rst.getString("room_number"),rst.getString("room_type"),rst.getDouble("price_per_night"),rst.getString("availability_status"));
+                System.out.println(room);
+               return room;
+            }
+            return null;
     }
 
     @Override

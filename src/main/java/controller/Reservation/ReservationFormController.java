@@ -59,6 +59,24 @@ public class ReservationFormController {
 
 
     public void reservationOnAction(ActionEvent actionEvent) throws SQLException {
+        if (cmbCusId.getText().isEmpty() || cmbRoomId.getValue() == null
+                || dateCheckIn.getValue() == null || dateCheckOut.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("All fileds required !");
+            alert.showAndWait();
+        }
+
+        if (dateCheckOut.getValue().isBefore(dateCheckIn.getValue())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Check-out date must be after check-in date!");
+            alert.showAndWait();
+            return;
+        }
+
         int cus_id = Integer.parseInt(cmbCusId.getText());
         String room_id = cmbRoomId.getValue();
         LocalDate check_in = dateCheckIn.getValue();
@@ -67,10 +85,9 @@ public class ReservationFormController {
 
         long days = ChronoUnit.DAYS.between(check_in, check_out);
         System.out.println(days);
-//
+
 //        // Fetch room price from the database
-//        double roomPrice = fetchRoomPrice(room_id);
-//        System.out.println(roomPrice);
+
 //        if (roomPrice <= 0) {
 //            System.out.println("Invalid room price. Please check the room ID.");
 //            return;
@@ -79,12 +96,14 @@ public class ReservationFormController {
 //        // Calculate total cost
 //        double total = days * roomPrice;
         double total = days * 4000;
+        lblTotal.setText(String.valueOf(total));
         System.out.println(total);
         // Create a reservation object
         Reservation res = new Reservation(cus_id, room_id, check_in, check_out, total, resStatus);
         System.out.println(res);
-
         boolean isAdded = new ReservationController().addReservation(res);
+
+
         if (isAdded) {
             System.out.println("Success Reservation added successfully.");
             clearForm();
@@ -92,7 +111,6 @@ public class ReservationFormController {
             System.out.println("Error Failed to add reservation.");
         }
         System.out.println(res);
-
 
 
     }
@@ -103,6 +121,7 @@ public class ReservationFormController {
 //
 //            preparedStatement.setString(1, roomNumber);
 //            ResultSet resultSet = preparedStatement.executeQuery();
+//            System.out.println(resultSet);
 //
 //            if (resultSet.next()) {
 //                return resultSet.getDouble("price_per_night");

@@ -122,4 +122,35 @@ public class DashBoardController implements Initializable {
         loadFormContent.getChildren().add(load);
     }
 
+    public void btnSearchRoomManagementOnAction(ActionEvent actionEvent) {
+            URL resource = this.getClass().getResource("/view/Admin/Room/SearchRoom.fxml");
+
+            assert resource != null;
+
+            Parent load = null;
+            try {
+                load = FXMLLoader.load(resource);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            loadFormContent.getChildren().clear();
+            loadFormContent.getChildren().add(load);
+    }
+
+    public void btnDeleteRoomManagementOnAction(ActionEvent actionEvent) {
+        URL resource = this.getClass().getResource("/view/Admin/Room/updateRoom.fxml");
+
+        assert resource != null;
+
+        Parent load = null;
+        try {
+            load = FXMLLoader.load(resource);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        loadFormContent.getChildren().clear();
+        loadFormContent.getChildren().add(load);
+    }
 }
